@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ES-es">
+<head>
+	<meta charset="UTF-8">
+	<title>FORMULARIO</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<div class="row justify-content-md-center">
+			<div class="col p-1 bg-light shadow p-3 mb-5 rounded">
+				<h3 class="text-center text-success border-bottom border-success p-1">FORMULARIO DE REGISTRO</h3>
+				<div class="col mt-2">
+					<form action="#" id="mForm">
+						<div class="form-row">
+							<div class="col md-4">
+								<label for="textId">ID Usuario: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textId">
+								<div class="alert alert-danger text-center mt-1 required" id="alertId">
+									
+								</div>
+							</div>
+							<div class="col md-4">
+								<label for="textPassword">Contraseña: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="password" class="form-control mb-1 required" id="textPassword">
+								<div class="alert alert-danger text-center mt-1 required" id="alertPassword">
+									
+								</div>
+							</div>
+							<div class="col md-4">
+								<label for="">Nombre: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textName">
+								<div class="alert alert-danger text-center mt-1 required" id="alertName">
+									
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col md-6">
+								<label for="">Dirección:</label>
+								<input type="text" class="form-control mb-1" id="textAddress">
+							</div>
+							<div class="col md-3">
+								<label for="selectCountry">País: <em class="text-muted">(Obligatorio)</em></label>
+								<select name="" id="selectCountry" class="custom-select mb-1">
+									<option selected="true">Selecciona un país...</option>
+									<option value="1">Alemania</option>
+									<option value="2">Austria</option>
+									<option value="3">Bélgica</option>
+									<option value="4">Bulgaria</option>
+									<option value="5">Chipre</option>
+									<option value="6">Croacia</option>
+									<option value="7">Dinamarca</option>
+									<option value="8">Eslovaquia</option>
+									<option value="9">Eslovenia</option>
+									<option value="10">España</option>
+									<option value="11">Estonia</option>
+									<option value="12">Finlandia</option>
+									<option value="13">Francia</option>
+									<option value="14">Grecia</option>
+									<option value="15">Hungría</option>
+									<option value="16">Irlanda</option>
+									<option value="17">Italia</option>
+									<option value="18">Lituania</option>
+									<option value="19">Letonia</option>
+									<option value="20">Luxemburgo</option>
+									<option value="21">Malta</option>
+									<option value="22">Países Bajos</option>
+									<option value="23">Polonia</option>
+									<option value="24">Portugal</option>
+									<option value="25">Reinno Unido</option>
+									<option value="26">República Checa</option>
+									<option value="27">Rumanía</option>
+									<option value="28">Suecia</option>
+								</select>
+								<div class="alert alert-danger text-center mt-1" id="alertCountry">
+									
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col">
+								<label for="textEmail">Email: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textEmail">
+								<div class="alert alert-danger text-center mt-1 required" id="alertEmail">
+									
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col md-4">
+								<label for="textZip">Código ZIP: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textZip">
+								<div class="alert alert-danger text-center mt-1 required" id="alertZip">
+									
+								</div>
+							</div>
+							<div class="col md-4 text-center">
+								<label for="" class="d-block">Sexo: <em class="text-muted">(Obligatorio)</em></label>
+								<div class="form-check form-check-inline mb-1">
+									<input type="radio" class="form-check-input" id="radioMale" name="sex" checked="true">
+									<label for="radioMale">Masculino</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input type="radio" class="form-check-input" id="radioFemale" name="sex">
+									<label for="radioFemale">Femenino</label>
+								</div>
+								<div class="alert alert-danger text-center mt-1">
+									
+								</div>
+							</div>
+							<dic class="col md-4 text-center">
+								<label for="" class="d-block">Idioma: <em class="text-muted">(Obligatorio)</em></label>
+								<div class="form-check form-check-inline mb-1">
+									<input type="checkbox" class="form-check-input" id="checkEnglish">
+									<label for="checkEnglish">Inglés</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input type="checkbox" class="form-check-input" id="checkItaly">
+									<label for="checkItaly">Italiano</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input type="checkbox" class="form-check-input" id="checkFrench">
+									<label for="checkFrench">Francés</label>
+								</div>
+								<div class="alert alert-danger text-center mt-1" id="alertLanguage">
+									
+								</div>
+							</dic>
+						</div>
+						<div class="form-row">
+							<div class="col">
+								<label for="textareaComments">Comentarios:</label>
+								<textarea name="" id="textareaComments" cols="30" rows="10" class="form-control"></textarea>
+								<p id="counter" class="text-success mt-1">0/240</p>
+							</div>
+						</div>
+						<div class="form-row mt-3">
+							<div class="col md-4">
+								<p></p>
+							</div>
+							<div class="col md-4">
+								<button type="button" class="btn btn-success btn-lg btn-block" id="btnSave">GUARDAR</button>
+							</div>
+							<div class="col md-4">
+								<p></p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<script src="./js/main.js"></script>
+</body>
+</html>
