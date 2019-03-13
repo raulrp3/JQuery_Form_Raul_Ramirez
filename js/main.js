@@ -1,8 +1,10 @@
-let validId,validPassword,validName,validCountry,validEmail,validZip,validLanguage,validComments;
+let validId,validPassword,validName,validCountry,validEmail,validZip,validLanguage,validComments,validDate,validNameMF,validSurnameMF,validDateMF;
 $(document).ready(function(){
 	hideAlerts();
 	initDate();
 	initRadioGroup();
+	let fieldsMF = $("#fieldsMF");
+	fieldsMF.hide();
 	let textId = $("#textId");
 	textId.blur(function(){validateId()});
 	let textPassword = $("#textPassword");
@@ -28,6 +30,14 @@ $(document).ready(function(){
 	checkLanguage.each(function(){
 		$(this).click(function(){validateLanguage()});
 	});
+	let btnMF = $("#btnMF");
+	btnMF.click(function(){
+		fieldsMF.toggle();
+		let value = $(this).val() == "SÍ" ? "NO" : "SÍ";
+		$(this).attr("value",value);
+	});
+	let textDate = $("#textDate");
+	textDate.blur(function(){validateDate()});
 });
 
 function hideAlerts(){
@@ -43,7 +53,7 @@ function validateId(){
 		mAddClass(event.target.id,"border-danger");
 		validId = false;
 	}else if(!validateLength(5,12,id,alertId)){
-		mAddClass(event.target,"border-danger");
+		mAddClass(event.target.id,"border-danger");
 		validId = false;
 	}else{
 		hideAlert(alertId);
@@ -159,7 +169,7 @@ function validateCountry(){
 
 function validateLanguage(){
 	let alertLanguage = $("#alertLanguage");
-	let checkLanguage = $("input[type = 'checkbox']");
+	let checkLanguage = $("input[name = 'language']");
 	let counter = 0;
 	checkLanguage.each(function(){
 		if ($(this).prop("checked")){
@@ -238,18 +248,45 @@ function hideCounter(){
 
 function validForm(){
 	let btnSave = $("#btnSave");
-	if (validId && validPassword && validName && validCountry && validEmail && validZip && validLanguage){
-		btnSave.prop("disabled",false);
+	let fieldsMF = $("#fieldsMF");
+	if (fieldsMF.css("display") == "none"){
+		if (validId && validPassword && validName && validCountry && validEmail && validZip && validLanguage && validateDate){
+			btnSave.prop("disabled",false);
+		}
+	}else{
+		alert("esta activo");
 	}
 }
 
 function initDate(){
 	let textDate = $("#textDate");
-	textDate.datepicker();
+	let textDateMF = $("#textDateMF");
+	textDate.datepicker({
+		changeMonth: true,
+		changeYear: true
+	});
+	textDateMF.datepicker({
+		changeMonth: true,
+		changeYear: true
+	});
 }
 
 function initRadioGroup(){
 	let radioSons = $("input[name = 'sons']");
 	radioSons.checkboxradio();
+}
+
+function validateDate(){
+	let alertDate = $("#alertDate");
+	let date = event.target.value;
+	if (!validateEmpty(alertDate,date)){
+		mAddClass(event.target.id,"border-danger");
+		validDate = false;
+	}else{
+		hideAlert(alertDate);
+		mRemoveClass(event.target.id,"border-danger");
+		validateDate = true;
+		validForm();
+	}
 }
 

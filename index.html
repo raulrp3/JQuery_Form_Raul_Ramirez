@@ -42,7 +42,7 @@
 							<div class="col md-4">
 								<label for="textDate">Fecha de nacimiento: <em class="text-muted">(Obligatorio)</em></label>
 								<input type="text" id="textDate" class="form-control mb-1">
-								<div class="alert alert-danger text-center mt-1" id="alertDate">
+								<div class="alert alert-danger text-center mt-1 datepicker" id="alertDate">
 									
 								</div>
 							</div>
@@ -59,9 +59,45 @@
 							</div>
 						</div>
 						<div class="form-row">
+							<div class="col md-3 text-center">
+								<label for="" class="d-block">¿Vives con tus padres?</label>
+								<input type="button" class="btn btn-primary" value="SÍ" id="btnMF">
+							</div>
 							<div class="col md-6">
 								<label for="">Dirección:</label>
 								<input type="text" class="form-control mb-1" id="textAddress">
+							</div>
+						</div>
+						<div class="form-row" id="fieldsMF">
+							<div class="col md-4">
+								<label for="textNameMF">Nombre madre/padre: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textNameMP">
+								<div class="alert alert-danger text-center mt-1 required" id="alertNameMP">
+									
+								</div>
+							</div>
+							<div class="col md-4">
+								<label for="textSurnameMF">Apellidos madre/padre: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textSurnameMP">
+								<div class="alert alert-danger text-center mt-1 required" id="alertSurnameMP">
+									
+								</div>
+							</div>
+							<div class="col md-4">
+								<label for="textDateMF">Fecha de nacimiento: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" id="textDateMF" class="form-control mb-1 datepicker">
+								<div class="alert alert-danger text-center mt-1" id="alertDateMF">
+									
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col md-4">
+								<label for="textEmail">Email: <em class="text-muted">(Obligatorio)</em></label>
+								<input type="text" class="form-control mb-1 required" id="textEmail">
+								<div class="alert alert-danger text-center mt-1 required" id="alertEmail">
+									
+								</div>
 							</div>
 							<div class="col md-3">
 								<label for="selectCountry">País: <em class="text-muted">(Obligatorio)</em></label>
@@ -102,15 +138,6 @@
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="col">
-								<label for="textEmail">Email: <em class="text-muted">(Obligatorio)</em></label>
-								<input type="text" class="form-control mb-1 required" id="textEmail">
-								<div class="alert alert-danger text-center mt-1 required" id="alertEmail">
-									
-								</div>
-							</div>
-						</div>
-						<div class="form-row">
 							<div class="col md-4">
 								<label for="textZip">Código ZIP: <em class="text-muted">(Obligatorio)</em></label>
 								<input type="text" class="form-control mb-1 required" id="textZip">
@@ -135,15 +162,15 @@
 							<dic class="col md-4 text-center">
 								<label for="" class="d-block">Idioma: <em class="text-muted">(Obligatorio)</em></label>
 								<div class="form-check form-check-inline mb-1">
-									<input type="checkbox" class="form-check-input" id="checkEnglish">
+									<input type="checkbox" class="form-check-input" id="checkEnglish" name="language">
 									<label for="checkEnglish">Inglés</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input type="checkbox" class="form-check-input" id="checkItaly">
+									<input type="checkbox" class="form-check-input" id="checkItaly" name="language">
 									<label for="checkItaly">Italiano</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input type="checkbox" class="form-check-input" id="checkFrench">
+									<input type="checkbox" class="form-check-input" id="checkFrench" name="language">
 									<label for="checkFrench">Francés</label>
 								</div>
 								<div class="alert alert-danger text-center mt-1" id="alertLanguage">
