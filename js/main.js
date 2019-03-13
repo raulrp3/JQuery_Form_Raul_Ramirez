@@ -1,6 +1,8 @@
 let validId,validPassword,validName,validCountry,validEmail,validZip,validLanguage,validComments;
 $(document).ready(function(){
 	hideAlerts();
+	initDate();
+	initRadioGroup();
 	let textId = $("#textId");
 	textId.blur(function(){validateId()});
 	let textPassword = $("#textPassword");
@@ -239,5 +241,15 @@ function validForm(){
 	if (validId && validPassword && validName && validCountry && validEmail && validZip && validLanguage){
 		btnSave.prop("disabled",false);
 	}
+}
+
+function initDate(){
+	let textDate = $("#textDate");
+	textDate.datepicker();
+}
+
+function initRadioGroup(){
+	let radioSons = $("input[name = 'sons']");
+	radioSons.checkboxradio();
 }
 
