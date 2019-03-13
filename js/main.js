@@ -1,4 +1,4 @@
-let validId,validPassword,validName,validCountry,validEmail,validZip,validLanguage,validComments,validDate,validNameMF,validSurnameMF,validDateMF;
+let validId,validPassword,validName,validCountry,validEmail,validZip,validLanguage,validComments,validNameMF,validSurnameMF;
 $(document).ready(function(){
 	hideAlerts();
 	initDate();
@@ -36,8 +36,10 @@ $(document).ready(function(){
 		let value = $(this).val() == "SÍ" ? "NO" : "SÍ";
 		$(this).attr("value",value);
 	});
-	let textDate = $("#textDate");
-	textDate.blur(function(){validateDate()});
+	let textNameMF = $("#textNameMF");
+	textNameMF.blur(function(){validateNameMF()});
+	let textSurnameMF = $("#textSurnameMF");
+	textSurnameMF.blur(function(){validateSurnameMF()});
 });
 
 function hideAlerts(){
@@ -250,11 +252,13 @@ function validForm(){
 	let btnSave = $("#btnSave");
 	let fieldsMF = $("#fieldsMF");
 	if (fieldsMF.css("display") == "none"){
-		if (validId && validPassword && validName && validCountry && validEmail && validZip && validLanguage && validateDate){
+		if (validId && validPassword && validName && validCountry && validEmail && validZip && validLanguage){
 			btnSave.prop("disabled",false);
 		}
 	}else{
-		alert("esta activo");
+		if (validId && validPassword && validName && validCountry && validEmail && validZip && validLanguage && validNameMF && validSurnameMF){
+			btnSave.prop("disabled",false);
+		}
 	}
 }
 
@@ -276,16 +280,40 @@ function initRadioGroup(){
 	radioSons.checkboxradio();
 }
 
-function validateDate(){
-	let alertDate = $("#alertDate");
-	let date = event.target.value;
-	if (!validateEmpty(alertDate,date)){
+function validateNameMF(){
+	let alertName = $("#alertNameMF");
+	let name = event.target.value;
+	let expReg = new RegExp(/^[A-Za-z\s]+$/g);
+	const MESSAGE = "El nombre no puede contener números";
+	if (!validateEmpty(alertName,name)){
 		mAddClass(event.target.id,"border-danger");
-		validDate = false;
+		validNameMF = false;
+	}else if(!validateValue(name,expReg,alertName,MESSAGE)){
+		mAddClass(event.target.id,"border-danger");
+		validNameMF = false;
 	}else{
-		hideAlert(alertDate);
+		hideAlert(alertName);
 		mRemoveClass(event.target.id,"border-danger");
-		validateDate = true;
+		validNameMF = true;
+		validForm();
+	}
+}
+
+function validateSurnameMF(){
+	let alertSurname = $("#alertSurnameMF");
+	let surname = event.target.value;
+	let expReg = new RegExp(/^[A-Za-z\s]+$/g);
+	const MESSAGE = "Los apellidos no puede contener números";
+	if (!validateEmpty(alertSurname,surname)){
+		mAddClass(event.target.id,"border-danger");
+		validSurnameMF = false;
+	}else if(!validateValue(surname,expReg,alertSurname,MESSAGE)){
+		mAddClass(event.target.id,"border-danger");
+		validSurnameMF = false;
+	}else{
+		hideAlert(alertSurname);
+		mRemoveClass(event.target.id,"border-danger");
+		validSurnameMF = true;
 		validForm();
 	}
 }
