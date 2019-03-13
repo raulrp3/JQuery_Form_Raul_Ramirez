@@ -136,7 +136,7 @@ function validateZip(){
 }
 
 function submitForm(){
-	let mForm = document.getElementById("mForm");
+	let mForm = $("#mForm");
 	mForm.submit();
 }
 
